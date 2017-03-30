@@ -1,0 +1,190 @@
+[mysqld]
+<% if @mysqld_datadir -%>
+datadir                 = <%= @mysqld_datadir %>
+<% end -%>
+<% if @mysqld_socket -%>
+socket                  = <%= @mysqld_socket %>
+<% end -%>
+<% if @mysqld_symbolic_links -%>
+symbolic-links          = <%= @mysqld_symbolic_links %>
+<% end -%>
+<% if @mysqld_bind_address -%>
+bind-address            = <%= @mysqld_bind_address %>
+<% end -%>
+<% if @mysqld_local_infile -%>
+local-infile            = <%= @mysqld_local_infile %>
+<% end -%>
+<% if @mysqld_user -%>
+user                    = <%= @mysqld_user %>
+<% end -%>
+<% if @mysqld_pid_file -%>
+pid-file                = <%= @mysqld_pid_file %>
+<% end -%>
+<% if @mysqld_port -%>
+port                    = <%= @mysqld_port %>
+<% end -%>
+<% if @mysqld_basedir -%>
+basedir                 = <%= @mysqld_basedir %>
+<% end -%>
+<% if @mysqld_tmpdir -%>
+tmpdir                  = <%= @mysqld_tmpdir %>
+<% end -%>
+<% if @mysqld_lc_messages_dir -%>
+lc_messages_dir         = <%= @mysqld_lc_messages_dir %>
+<% end -%>
+<% if @mysqld_lc_messages -%>
+lc_messages             = <%= @mysqld_lc_messages %>
+<% end -%>
+<% if @mysqld_skip_external_locking -%>
+skip-external-locking
+<% end -%>
+<% if @mysqld_max_connections -%>
+max_connections         = <%= @mysqld_max_connections %>
+<% end -%>
+<% if @mysqld_connect_timeout -%>
+connect_timeout         = <%= @mysqld_connect_timeout %>
+<% end -%>
+<% if @mysqld_wait_timeout -%>
+wait_timeout            = <%= @mysqld_wait_timeout %>
+<% end -%>
+<% if @mysqld_max_allowed_packet -%>
+max_allowed_packet      = <%= @mysqld_max_allowed_packet %>
+<% end -%>
+<% if @mysqld_thread_cache_size -%>
+thread_cache_size       = <%= @mysqld_thread_cache_size %>
+<% end -%>
+<% if @mysqld_sort_buffer_size -%>
+sort_buffer_size        = <%= @mysqld_sort_buffer_size %>
+<% end -%>
+<% if @mysqld_bulk_insert_buffer_size -%>
+bulk_insert_buffer_size = <%= @mysqld_bulk_insert_buffer_size %>
+<% end -%>
+<% if @mysqld_tmp_table_size -%>
+tmp_table_size          = <%= @mysqld_tmp_table_size %>
+<% end -%>
+<% if @mysqld_max_heap_table_size -%>
+max_heap_table_size     = <%= @mysqld_max_heap_table_size %>
+<% end -%>
+<% if @mysqld_myisam_recover_options -%>
+myisam_recover_options  = <%= @mysqld_myisam_recover_options %>
+<% end -%>
+<% if @mysqld_key_buffer_size -%>
+key_buffer_size         = <%= @mysqld_key_buffer_size %>
+<% end -%>
+<% if @mysqld_table_open_cache -%>
+table_open_cache        = <%= @mysqld_table_open_cache %>
+<% end -%>
+<% if @mysqld_myisam_sort_buffer_size -%>
+myisam_sort_buffer_size = <%= @mysqld_myisam_sort_buffer_size %>
+<% end -%>
+<% if @mysqld_concurrent_insert -%>
+concurrent_insert       = <%= @mysqld_concurrent_insert %>
+<% end -%>
+<% if @mysqld_read_buffer_size -%>
+read_buffer_size        = <%= @mysqld_read_buffer_size %>
+<% end -%>
+<% if @mysqld_read_rnd_buffer_size -%>
+read_rnd_buffer_size    = <%= @mysqld_read_rnd_buffer_size %>
+<% end -%>
+<% if @mysqld_query_cache_limit -%>
+query_cache_limit       = <%= @mysqld_query_cache_limit %>
+<% end -%>
+<% if @mysqld_query_cache_size -%>
+query_cache_size        = <%= @mysqld_query_cache_size %>
+<% end -%>
+<% if @mysqld_log_warnings -%>
+log_warnings            = <%= @mysqld_log_warnings %>
+<% end -%>
+<% if @mysqld_slow_query_log_file -%>
+slow_query_log_file     = <%= @mysqld_slow_query_log_file %>
+<% end -%>
+<% if @mysqld_long_query_time -%>
+long_query_time         = <%= @mysqld_long_query_time %>
+<% end -%>
+<% if @mysqld_log_slow_verbosity -%>
+log_slow_verbosity      = <%= @mysqld_log_slow_verbosity %>
+<% end -%>
+<% if @mysqld_log_bin -%>
+log_bin                 = <%= @mysqld_log_bin %>
+<% end -%>
+<% if @mysqld_log_bin_index -%>
+log_bin_index           = <%= @mysqld_log_bin_index %>
+<% end -%>
+<% if @mysqld_expire_logs_days -%>
+expire_logs_days        = <%= @mysqld_expire_logs_days %>
+<% end -%>
+<% if @mysqld_max_binlog_size -%>
+max_binlog_size         = <%= @mysqld_max_binlog_size %>
+<% end -%>
+<% if @mysqld_default_storage_engine -%>
+default_storage_engine  = <%= @mysqld_default_storage_engine %>
+<% end -%>
+<% if @mysqld_innodb_buffer_pool_size -%>
+innodb_buffer_pool_size = <%= @mysqld_innodb_buffer_pool_size %>
+<% end -%>
+<% if @mysqld_innodb_log_buffer_size -%>
+innodb_log_buffer_size  = <%= @mysqld_innodb_log_buffer_size %>
+<% end -%>
+<% if @mysqld_innodb_file_per_table -%>
+innodb_file_per_table   = <%= @mysqld_innodb_file_per_table %>
+<% end -%>
+<% if @mysqld_innodb_open_files -%>
+innodb_open_files       = <%= @mysqld_innodb_open_files %>
+<% end -%>
+<% if @mysqld_innodb_io_capacity -%>
+innodb_io_capacity      = <%= @mysqld_innodb_io_capacity %>
+<% end -%>
+<% if @mysqld_innodb_flush_method -%>
+innodb_flush_method     = <%= @mysqld_innodb_flush_method %>
+<% end -%>
+
+[mysqld_safe]
+<% if @mysqld_safe_log_error -%>
+log-error = <%= @mysqld_safe_log_error %>
+<% end -%>
+<% if @mysqld_safe_pid_file -%>
+pid-file  = <%= @mysqld_safe_pid_file %>
+<% end -%>
+<% if @mysqld_safe_socket -%>
+socket    = <%= @mysqld_safe_socket %>
+<% end -%>
+<% if @mysqld_safe_nice -%>
+nice      = <%= @mysqld_safe_nice %>
+<% end %>
+
+[client-server]
+
+[client]
+<% if @client_port -%>
+port   = <%= @client_port %>
+<% end -%>
+<% if @client_socket -%>
+socket = <%= @client_socket %>
+<% end -%>
+
+[galera]
+
+[mysqldump]
+<% if @mysqldump_quick -%>
+quick
+<% end -%>
+<% if @mysqldump_quote_names -%>
+quote-names
+<% end -%>
+<% if @mysqldump_max_allowed_packet -%>
+max_allowed_packet = <%= @mysqldump_max_allowed_packet %>
+<% end -%>
+
+[mysql]
+
+[isamchk]
+<% if @isamchk_key_buffer -%>
+key_buffer = <%= @isamchk_key_buffer %>
+<% end -%>
+
+<% if !@includedir.empty? -%>
+<% @includedir.each do |directory| -%>
+!includedir <%= directory %>
+<% end -%>
+<% end -%>
+
