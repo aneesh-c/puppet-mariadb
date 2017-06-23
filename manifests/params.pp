@@ -16,7 +16,7 @@ class mariadb::params {
       }
     }
   }
-  if $::osfamily == 'Debian' {
+  elsif $::osfamily == 'Debian' {
     $package_name = [ 'mariadb-server' ]
     $configfile = '/etc/mysql/my.cnf'
   }
