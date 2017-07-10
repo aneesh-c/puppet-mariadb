@@ -32,6 +32,9 @@ tmpdir                  = <%= @mysqld_tmpdir %>
 <% if @mysqld_lc_messages_dir -%>
 lc_messages_dir         = <%= @mysqld_lc_messages_dir %>
 <% end -%>
+<% if @mysqld_lc_messages_dir_h -%>
+lc-messages-dir         = <%= @mysqld_lc_messages_dir_h %>
+<% end -%>
 <% if @mysqld_lc_messages -%>
 lc_messages             = <%= @mysqld_lc_messages %>
 <% end -%>
@@ -137,6 +140,18 @@ innodb_io_capacity      = <%= @mysqld_innodb_io_capacity %>
 <% if @mysqld_innodb_flush_method -%>
 innodb_flush_method     = <%= @mysqld_innodb_flush_method %>
 <% end -%>
+<% if @mysqld_character_set_server -%>
+character-set-server    = <%= @mysqld_character_set_server %>
+<% end -%>
+<% if @mysqld_collation_server -%>
+collation-server        = <%= @mysqld_collation_server %>
+<% end -%>
+<% if @mysqld_log_error -%>
+log_error               = <%= @mysqld_log_error %>
+<% end -%>
+<% if @mysqld_thread_stack -%>
+thread_stack            = <%= @mysqld_thread_stack %>
+<% end -%>
 
 [mysqld_safe]
 <% if @mysqld_safe_log_error -%>
@@ -151,15 +166,24 @@ socket    = <%= @mysqld_safe_socket %>
 <% if @mysqld_safe_nice -%>
 nice      = <%= @mysqld_safe_nice %>
 <% end %>
+<% if @mysqld_safe_skip_log_error -%>
+skip_log_error
+<% end -%>
+<% if @mysqld_safe_syslog -%>
+syslog
+<% end -%>
 
 [client-server]
 
 [client]
 <% if @client_port -%>
-port   = <%= @client_port %>
+port                  = <%= @client_port %>
 <% end -%>
 <% if @client_socket -%>
-socket = <%= @client_socket %>
+socket                = <%= @client_socket %>
+<% end -%>
+<% if @client_default_character_set -%>
+default-character-set = <%= @client_default_character_set %>
 <% end -%>
 
 [galera]
@@ -176,6 +200,9 @@ max_allowed_packet = <%= @mysqldump_max_allowed_packet %>
 <% end -%>
 
 [mysql]
+<% if @mysql_default_character_set -%>
+default-character-set = <%= @mysql_default_character_set %>
+<% end -%>
 
 [isamchk]
 <% if @isamchk_key_buffer -%>

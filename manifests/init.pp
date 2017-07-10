@@ -27,6 +27,7 @@ class mariadb (
   $mysqld_basedir                 = undef,
   $mysqld_tmpdir                  = undef,
   $mysqld_lc_messages_dir         = undef,
+  $mysqld_lc_messages_dir_h       = undef,
   $mysqld_lc_messages             = undef,
   $mysqld_skip_external_locking   = undef,
   $mysqld_max_connections         = undef,
@@ -62,23 +63,39 @@ class mariadb (
   $mysqld_innodb_open_files       = undef,
   $mysqld_innodb_io_capacity      = undef,
   $mysqld_innodb_flush_method     = undef,
+  $mysqld_character_set_server    = undef,
+  $mysqld_collation_server        = undef,
+  $mysqld_log_error               = undef,
+  $mysqld_thread_stack            = undef,
   $mysqld_safe_log_error          = undef,
   $mysqld_safe_pid_file           = undef,
   $mysqld_safe_socket             = undef,
   $mysqld_safe_nice               = undef,
+  $mysqld_safe_skip_log_error     = undef,
+  $mysqld_safe_syslog             = undef,
   $client_port                    = undef,
   $client_socket                  = undef,
+  $client_default_character_set   = undef,
   $mysqldump_quick                = undef,
   $mysqldump_quote_names          = undef,
   $mysqldump_max_allowed_packet   = undef,
+  $mysql_default_character_set    = undef,
   $isamchk_key_buffer             = undef,
   $includedir                     = [],
 ) inherits ::mariadb::params {
   package { $package_name: ensure => installed }
   file { $configfile:
-    require => package[$package_name],
+    require => Package[$package_name],
     backup  => '.backup',
     content => template($template),
+  }
+  exec { '/bin/mv /etc/mysql/conf.d/mysql.cnf /etc/mysql/conf.d/mysql.cnf.backup':
+    onlyif => 'test -f /etc/mysql/conf.d/mysql.cnf',
+    path   => ['/usr/bin','/usr/sbin','/bin','/sbin'],
+  }
+  exec { '/bin/mv /etc/mysql/conf.d/mysqldump.cnf /etc/mysql/conf.d/mysqldump.cnf.backup':
+    onlyif => 'test -f /etc/mysql/conf.d/mysqldump.cnf',
+    path   => ['/usr/bin','/usr/sbin','/bin','/sbin'],
   }
   if $::osfamily == 'RedHat' {
     service { $servicename:

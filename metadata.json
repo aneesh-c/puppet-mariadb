@@ -1,12 +1,16 @@
 {
   "name": "aneesh-mariadb",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "author": "aneesh",
   "summary": "Puppet module for mariadb",
   "license": "Apache-2.0",
   "source": "https://github.com/aneesh-c/puppet-mariadb",
   "project_page": "https://github.com/aneesh-c/puppet-mariadb",
   "issues_url": "https://github.com/aneesh-c/puppet-mariadb/issues",
+  "dependencies": [
+  
+  ],
+  "data_provider": null,
   "tags": [
     "mariadb",
     "database",
@@ -32,7 +36,8 @@
       "operatingsystemrelease": [
         "12.04",
         "14.04",
-        "16.04"
+        "16.04",
+        "17.04"
       ]
     },
     {
@@ -42,8 +47,5 @@
         "8"
       ]
     }
-  ],
-  "dependencies": [
-  
   ]
 }
