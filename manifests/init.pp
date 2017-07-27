@@ -67,6 +67,8 @@ class mariadb (
   $mysqld_collation_server        = undef,
   $mysqld_log_error               = undef,
   $mysqld_thread_stack            = undef,
+  $mysqld_key_buffer              = undef,
+  $mysqld_myisam_recover          = undef,
   $mysqld_safe_log_error          = undef,
   $mysqld_safe_pid_file           = undef,
   $mysqld_safe_socket             = undef,
@@ -99,7 +101,7 @@ class mariadb (
   }
   if $::osfamily == 'RedHat' {
     service { $servicename:
-      require => package[$package_name],
+      require => Package[$package_name],
       enable  => true,
     }
   }

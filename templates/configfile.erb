@@ -152,6 +152,12 @@ log_error               = <%= @mysqld_log_error %>
 <% if @mysqld_thread_stack -%>
 thread_stack            = <%= @mysqld_thread_stack %>
 <% end -%>
+<% if @mysqld_key_buffer -%>
+key_buffer              = <%= @mysqld_key_buffer %>
+<% end -%>
+<% if @mysqld_myisam_recover -%>
+myisam-recover          = <%= @mysqld_myisam_recover %>
+<% end -%>
 
 [mysqld_safe]
 <% if @mysqld_safe_log_error -%>
