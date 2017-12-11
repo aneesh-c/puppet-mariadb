@@ -69,6 +69,7 @@ class mariadb (
   $mysqld_thread_stack            = undef,
   $mysqld_key_buffer              = undef,
   $mysqld_myisam_recover          = undef,
+  $mysqld_innodb_log_file_size    = undef,
   $mysqld_safe_log_error          = undef,
   $mysqld_safe_pid_file           = undef,
   $mysqld_safe_socket             = undef,
