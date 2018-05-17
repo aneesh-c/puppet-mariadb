@@ -1,0 +1,12 @@
+<% if @header -%>
+# <%= @header %>
+<% end -%>
+# http://downloads.mariadb.org/mariadb/repositories/
+[mariadb]
+name = MariaDB
+<% if @baseurl -%>
+baseurl = <%= @baseurl %>
+<% end -%>
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1 
+
