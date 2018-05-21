@@ -1,6 +1,6 @@
 {
   "name": "aneesh-mariadb",
-  "version": "6.1.2",
+  "version": "6.1.3",
   "author": "aneesh",
   "summary": "Puppet module for mariadb",
   "license": "Apache-2.0",
