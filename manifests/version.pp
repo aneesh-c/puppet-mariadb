@@ -51,6 +51,18 @@ class mariadb::version (
           }
         }
       }
+      elsif $mariadb_version == '5.5' {
+        case $::operatingsystemrelease {
+          /^6.*/: {
+            $header = 'MariaDB 5.5 RedHat repository list - created 2018-06-01 10:15 UTC'
+            $baseurl = 'http://yum.mariadb.org/5.5/rhel6-amd64'
+          }
+          default: {
+            $header = 'MariaDB 5.5 RedHat repository list - created 2018-06-01 10:15 UTC'
+            $baseurl = 'http://yum.mariadb.org/5.5/rhel6-amd64'
+          }
+        }
+      }
     }
     elsif $::operatingsystem == 'CentOS' {
       if $mariadb_version == '10.2' {
@@ -98,6 +110,18 @@ class mariadb::version (
           default: {
             $header = 'MariaDB 10.0 CentOS repository list - created 2018-05-21 11:40 UTC'
             $baseurl = 'http://yum.mariadb.org/10.0/centos6-amd64'
+          }
+        }
+      }
+      elsif $mariadb_version == '5.5' {
+        case $::operatingsystemrelease {
+          /^6.*/: {
+            $header = 'MariaDB 5.5 CentOS repository list - created 2018-06-01 10:01 UTC'
+            $baseurl = 'http://yum.mariadb.org/5.5/centos6-amd64'
+          }
+          default: {
+            $header = 'MariaDB 5.5 CentOS repository list - created 2018-06-01 10:01 UTC'
+            $baseurl = 'http://yum.mariadb.org/5.5/centos6-amd64'
           }
         }
       }

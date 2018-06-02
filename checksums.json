@@ -1,10 +1,10 @@
 {
   "LICENSE": "50d908cf666418ed04b9f5858b168530",
   "README.md": "6c7e7d2e39d58afd39d28855e2d7ee87",
-  "manifests/init.pp": "991e6643557065176c91092745cb6a67",
+  "manifests/init.pp": "7300d86058217ca03b8a8c64ff57665b",
   "manifests/params.pp": "c662856d531ca0d30da54377719679c0",
-  "manifests/version.pp": "d090ab7d0762cde9dbd1712fcf13c469",
-  "metadata.json": "7dfaeeeebad8e97814116497d7744fe8",
-  "templates/configfile.erb": "c4db36b692f068a40a2a96f5042aaa16",
+  "manifests/version.pp": "dc6c227092bf96c9ff2a3388d7e7e7aa",
+  "metadata.json": "dcee28693a22de30de45c739075f0be7",
+  "templates/configfile.erb": "3b7209683ab4f2a0683f0f1878fe3a05",
   "templates/repository.erb": "99aeb8eb3da3846390dd1a1a922ec622"
 }

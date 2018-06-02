@@ -32,8 +32,8 @@ tmpdir                  = <%= @mysqld_tmpdir %>
 <% if @mysqld_lc_messages_dir -%>
 lc_messages_dir         = <%= @mysqld_lc_messages_dir %>
 <% end -%>
-<% if @mysqld_lc_messages_dir_h -%>
-lc-messages-dir         = <%= @mysqld_lc_messages_dir_h %>
+<% if @mysqld_lc__messages__dir -%>
+lc-messages-dir         = <%= @mysqld_lc__messages__dir %>
 <% end -%>
 <% if @mysqld_lc_messages -%>
 lc_messages             = <%= @mysqld_lc_messages %>

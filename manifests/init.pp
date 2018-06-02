@@ -27,7 +27,7 @@ class mariadb (
   $mysqld_basedir                 = undef,
   $mysqld_tmpdir                  = undef,
   $mysqld_lc_messages_dir         = undef,
-  $mysqld_lc_messages_dir_h       = undef,
+  $mysqld_lc__messages__dir       = undef,
   $mysqld_lc_messages             = undef,
   $mysqld_skip_external_locking   = undef,
   $mysqld_max_connections         = undef,
