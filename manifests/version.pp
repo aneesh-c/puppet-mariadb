@@ -3,7 +3,23 @@ class mariadb::version (
 ){
   if $::osfamily == 'RedHat' and $mariadb_version != undef {
     if $::operatingsystem == 'RedHat' {
-      if $mariadb_version == '10.2' {
+      if $mariadb_version == '10.3' {
+        case $::operatingsystemrelease {
+          /^6.*/: {
+            $header = 'MariaDB 10.3 RedHat repository list - created 2018-06-02 10:24 UTC'
+            $baseurl = 'http://yum.mariadb.org/10.3/rhel6-amd64'
+          }
+          /^7.*/: {
+            $header = 'MariaDB 10.3 RedHat repository list - created 2018-06-02 09:55 UTC'
+            $baseurl = 'http://yum.mariadb.org/10.3/rhel7-amd64'
+          }
+          default: {
+            $header = 'MariaDB 10.3 RedHat repository list - created 2018-06-02 10:24 UTC'
+            $baseurl = 'http://yum.mariadb.org/10.3/rhel6-amd64'
+          }
+        }
+      }
+      elsif $mariadb_version == '10.2' {
         case $::operatingsystemrelease {
           /^6.*/: {
             $header = 'MariaDB 10.2 RedHat repository list - created 2018-05-11 12:07 UTC'
@@ -65,7 +81,23 @@ class mariadb::version (
       }
     }
     elsif $::operatingsystem == 'CentOS' {
-      if $mariadb_version == '10.2' {
+      if $mariadb_version == '10.3' {
+        case $::operatingsystemrelease {
+          /^6.*/: {
+            $header = 'MariaDB 10.3 CentOS repository list - created 2018-06-02 10:10 UTC'
+            $baseurl = 'http://yum.mariadb.org/10.3/centos6-amd64'
+          }
+          /^7.*/: {
+            $header = 'MariaDB 10.3 CentOS repository list - created 2018-06-02 09:42 UTC'
+            $baseurl = 'http://yum.mariadb.org/10.3/centos7-amd64'
+          }
+          default: {
+            $header = 'MariaDB 10.3 CentOS repository list - created 2018-06-02 10:10 UTC'
+            $baseurl = 'http://yum.mariadb.org/10.3/centos6-amd64'
+          }
+        }
+      }
+      elsif $mariadb_version == '10.2' {
         case $::operatingsystemrelease {
           /^6.*/: {
             $header = 'MariaDB 10.2 CentOS repository list - created 2018-05-11 11:49 UTC'
@@ -133,7 +165,20 @@ class mariadb::version (
   elsif $::osfamily == 'Debian' and $mariadb_version != undef {
     if $::operatingsystem == 'Ubuntu' {
       $packagename_repo = 'software-properties-common'
-      if $mariadb_version == '10.2' {
+      if $mariadb_version == '10.3' {
+        case $::operatingsystemrelease {
+          /^14.*/: {
+            $execute_repo = [ 'apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db', "add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://sgp1.mirrors.digitalocean.com/mariadb/repo/10.3/ubuntu trusty main'", 'apt-get update' ]
+          }
+          /^16.*/: {
+            $execute_repo = [ 'apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8', "add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://sgp1.mirrors.digitalocean.com/mariadb/repo/10.3/ubuntu xenial main'", 'apt-get update' ]
+          }
+          default: {
+            $execute_repo = [ 'apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db', "add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://sgp1.mirrors.digitalocean.com/mariadb/repo/10.3/ubuntu trusty main'", 'apt-get update' ]
+          }
+        }
+      }
+      elsif $mariadb_version == '10.2' {
         case $::operatingsystemrelease {
           /^14.*/: {
             $execute_repo = [ 'apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db', "add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://sgp1.mirrors.digitalocean.com/mariadb/repo/10.2/ubuntu trusty main'", 'apt-get update' ]
@@ -174,7 +219,23 @@ class mariadb::version (
       }
     }
     elsif $::operatingsystem == 'Debian' {
-      if $mariadb_version == '10.2' {
+      if $mariadb_version == '10.3' {
+        case $::operatingsystemrelease {
+          /^8.*/: {
+            $packagename_repo = 'software-properties-common'
+            $execute_repo = [ 'apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db', "add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://sgp1.mirrors.digitalocean.com/mariadb/repo/10.3/debian jessie main'", 'apt-get update' ]
+          }
+          /^9.*/: {
+            $packagename_repo = [ 'software-properties-common', 'dirmngr' ]
+            $execute_repo = [ 'apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xF1656F24C74CD1D8', "add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://sgp1.mirrors.digitalocean.com/mariadb/repo/10.3/debian stretch main'", 'apt-get update' ]
+          }
+          default: {
+            $packagename_repo = 'software-properties-common'
+            $execute_repo = [ 'apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db', "add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://sgp1.mirrors.digitalocean.com/mariadb/repo/10.3/debian jessie main'", 'apt-get update' ]
+          }
+        }
+      }
+      elsif $mariadb_version == '10.2' {
         case $::operatingsystemrelease {
           /^8.*/: {
             $packagename_repo = 'software-properties-common'
