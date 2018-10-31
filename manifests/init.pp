@@ -87,7 +87,15 @@ class mariadb (
   $isamchk_key_buffer             = undef,
   $includedir                     = [],
 ) inherits ::mariadb::params {
-  package { $package_name: ensure => installed }
+  if $::osfamily == 'RedHat' {
+    package { $package_name: ensure => installed }
+  }
+  elsif $::osfamily == 'Debian' {
+    package { $package_name: 
+      ensure => installed, 
+      require  => Exec['apt-get update'], 
+    }
+  }
   file { $configfile:
     require => Package[$package_name],
     backup  => '.backup',
